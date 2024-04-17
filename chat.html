@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://i.pinimg.com/736x/f3/6b/fa/f36bfa3b60559e7da0014f91250abf66.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            justify-content: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        select,
+        input[type="text"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #mensagens {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        #mensagens div {
+            margin-bottom: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .mensagem-input {
+            width: calc(100% - 70px); /* Largura da janela - largura do botão */
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            display: inline-block;
+        }
+
+        .mensagem-button {
+            width: 100%; /* Largura do botão */
+            padding: 10px;
+            margin-top: 5px;
+            /* margin-left: 10px;
+            margin-bottom: 10px; */
+            border-radius: 5px;
+            border: 1px solid #007bff; /* Cor do botão */
+            background-color: #007bff; /* Cor de fundo do botão */
+            color: #fff;
+            cursor: pointer;
+            box-sizing: border-box;
+            display: inline-block;
+        }
+
+        .reload-button {
+            width: 100%;
+            padding: 10px;
+            margin-top: -20px;
+            border-radius: 5px;
+            border: 1px solid #007bff; /* Cor do botão */
+            background-color: #007bff; /* Cor de fundo do botão */
+            color: #fff;
+            cursor: pointer;
+            box-sizing: border-box;
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Chat</h1>
+    <form id="formSelecionarUsuarios">
+        <div>
+            <label for="selectUsuarioSender">Selecione o Usuário Remetente:</label>
+            <select id="selectUsuarioSender" name="selectUsuarioSender">
+                <!-- Options serão adicionadas dinamicamente aqui -->
+            </select>
+        </div>
+        <div>
+            <label for="selectUsuarioReciever">Selecione o Usuário Destinatário:</label>
+            <select id="selectUsuarioReciever" name="selectUsuarioReciever">
+                <!-- Options serão adicionadas dinamicamente aqui -->
+            </select>
+        </div>
+        <div>
+            <input type="text" id="msgBox" name="msgBox" class="mensagem-input" placeholder="Digite a mensagem">
+            <button type="submit" class="mensagem-button">Enviar</button>
+        </div>
+    </form>
+
+    <button type="button" class="reload-button" id="reloadMessagesButton">Recarregar Mensagens</button>
+
+    <div id="mensagens">
+        <!-- Mensagens serão adicionadas dinamicamente aqui -->
+    </div>
+</div>
+
+
+<script src="js/chat.js"></script>
+</body>
+</html>
