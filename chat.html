@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('https://i.pinimg.com/736x/f3/6b/fa/f36bfa3b60559e7da0014f91250abf66.jpg');
+            /* background-image: url('https://i.pinimg.com/736x/f3/6b/fa/f36bfa3b60559e7da0014f91250abf66.jpg'); */
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -121,6 +121,41 @@
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Cadastro</h1>
+        <form id="formCriarUsuario">
+            <div>
+                <label for="loginUsuario">Email:</label>
+                <input type="text" id="loginUsuario" name="loginUsuario" placeholder="Digite o email" required>
+            </div>
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Digite o username" required>
+            </div>
+            <div>
+                <label for="senhaUsuario">Senha:</label>
+                <input type="password" name="senhaUsuario" id="senhaUsuario" placeholder="Digite a senha" required>
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <!-- Campos de Login -->
+        <form id="formLoginUsuario">
+            <h1>Login</h1>
+            <div>
+                <label for="loginUsuarioLogin">Email:</label>
+                <input type="text" id="loginUsuarioLogin" name="loginUsuarioLogin" placeholder="Digite o email" required>
+            </div>
+            <div>
+                <label for="senhaUsuarioLogin">Senha:</label>
+                <input type="password" name="senhaUsuarioLogin" id="senhaUsuarioLogin" placeholder="Digite a senha" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+
+
 <div class="container">
     <h1>Chat</h1>
     <form id="formSelecionarUsuarios">
@@ -151,5 +186,6 @@
 
 
 <script src="js/chat.js"></script> 
+<script src="js/login.js"></script>
 </body>
 </html>

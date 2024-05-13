@@ -1,6 +1,6 @@
 <?php
 
-require_once (__DIR__ . "/../config/Conexao.php");
+require_once __DIR__ . "/../config/Conexao.php";
 
 class Usuario
 {
@@ -43,6 +43,23 @@ class Usuario
         }
     }
 
-}
+    public static function getLogin($login, $senha)
+    {
+        try {
+            $conexao = Conexao::getConexao();
+            $stmt = $conexao->prepare("SELECT * FROM Users WHERE email LIKE ?");
+            $stmt->execute([$login]);
 
-?>
+            $usuario = $stmt->fetchAll()[0];
+
+            if (password_verify($senha, $usuario["password"])) {
+                return $usuario;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            return null;
+        }
+    }
+
+}

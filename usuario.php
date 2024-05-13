@@ -7,18 +7,15 @@ require_once "./config/verbs.php";
 require_once "./config/header.php";
 require_once "./model/Mensagem.php";
 require_once "./model/Usuario.php";
-
+$usuario = idUsuarioLogado();
 if (isMetodo("GET")) {
     try {
-        if (parametrosValidos($_GET, ["id"])) {
-            $filmeId = $_GET["id"];
-            $filme = Filme::getFilmePorId($filmeId);
-
-            if (!$filme) {
-                output(404, ["msg" => "Filme não encontrado"]);
+        if (parametrosValidos($_GET, ["logout"])) {
+            if (!$usuario) {
+                throw new Exception("Usuário não está logado", 401);
             }
-
-            output(200, $filme);
+            session_destroy();
+            output(200, ["msg" => "Deslogado com sucesso"]);
         } else {
             $usuario = Usuario::listarUsuarios();
             output(200, $usuario);
